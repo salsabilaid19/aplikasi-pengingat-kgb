@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Jika file/folder yang diminta benar-benar ada (CSS, JS, gambar), sajikan langsung
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Selain itu, arahkan semua request ke front controller
+RewriteRule ^ index.php [L]
